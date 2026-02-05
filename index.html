@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I’m Sorry ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', system-ui, sans-serif;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 32px 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 77, 136, 0.25);
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4d88;
+      font-size: clamp(24px, 6vw, 32px);
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #555;
+      font-size: clamp(16px, 4.5vw, 18px);
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 60px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    button {
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    #yesBtn {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #yesBtn:active {
+      transform: scale(0.96);
+      background: #ff1f6a;
+    }
+
+    #noBtn {
+      background: #ffe6f0;
+      color: #ff4d88;
+      position: absolute;
+      left: 160px;
+      top: 0;
+    }
+
+    /* Smaller phones */
+    @media (max-width: 380px) {
+      .buttons {
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>I’m Really Sorry Bubu💕</h1>
+    <p>
+      I know I messed up and I hate hurting you.  
+      Please forgive me? 🥺
+    </p>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="forgiven()">Yes 💖</button>
+      <button id="noBtn">No 😤</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const buttonsBox = document.querySelector(".buttons");
+
+    function moveNoButton() {
+      const boxWidth = buttonsBox.offsetWidth;
+      const boxHeight = buttonsBox.offsetHeight;
+
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = boxWidth - btnWidth;
+      const maxY = boxHeight - btnHeight;
+
+      const x = Math.random()*4 * maxX;
+      const y = Math.random()*4 * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Desktop hover
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+    // Mobile touch
+    noBtn.addEventListener("touchstart", moveNoButton);
+
+    function forgiven() {
+      document.body.innerHTML = `
+        <div style="
+          min-height:100vh;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background: linear-gradient(135deg, #ffd6e8, #ffffff);
+          font-family:Poppins, system-ui, sans-serif;
+          text-align:center;
+          padding:20px;
+        ">
+          <h1 style="
+            color:#ff4d88;
+            font-size:clamp(26px,6vw,36px);
+          ">
+            Yayyy 💕💫 <br>
+            I promise I’ll do better (Sayad 🥺) ❤️
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
